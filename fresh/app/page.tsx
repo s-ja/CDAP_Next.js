@@ -1,6 +1,10 @@
+//page.tsx
+
+import Link from "next/link";
+
 export default function Home() {
   let name = "asj";
-  let age = 20;
+  let age = 29;
   let repositery = "https://github.com/s-ja/CDAP_Next.js";
   return (
     <div>
