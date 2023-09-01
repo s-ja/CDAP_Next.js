@@ -32,3 +32,8 @@ body {
   text-decoration: none;
   text-transform: capitalize;
 }
+
+.food_img {
+  width: 100%;
+  height: auto;
+}
