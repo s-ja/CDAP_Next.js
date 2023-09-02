@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function List() {
   let product = ["tomatoes", "pasta", "coconut"];
+  let [quantity, setQuantity] = useState(0);
   return (
     <div>
       <h4 className="title">product list</h4>
@@ -17,8 +21,22 @@ export default function List() {
                 alt={`${i}'s img`}
               />
             </div>
-            <img src="" alt="" />
             <h4>{a}</h4>
+            <button
+              onClick={() => {
+                setQuantity(quantity - 1);
+              }}
+            >
+              -
+            </button>
+            <span>{quantity}</span>
+            <button
+              onClick={() => {
+                setQuantity(quantity + 1);
+              }}
+            >
+              +
+            </button>
           </div>
         );
       })}
