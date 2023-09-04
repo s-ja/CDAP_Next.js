@@ -10,8 +10,8 @@ export default async function handler(request, response) {
     } else {
       try {
         const db = (await connectDB).db("forum");
-        let result = await db.collection("post").insertOne(request.body);
-        return response.status(200).redirect("/list");
+        let result = db.collection("post").insertOne(request.body);
+        return response.redirect(302, "/list");
         // response.status(200).json("completed");
         // response.status(200).redirect("/list");
       } catch (error) {
