@@ -1,6 +1,8 @@
 import { connectDB } from "@/util/database";
 import Link from "next/link";
 
+import DetailLink from "./DetailLink";
+
 export default async function List() {
   const db = (await connectDB).db("forum");
   let result = await db.collection("post").find().toArray();
@@ -10,10 +12,9 @@ export default async function List() {
   return (
     <div className="list_bg">
       {result.map((a, i) => {
-        console.log(Object.keys(a._id));
-        const idString = a._id.toString(); // ObjectId를 문자열로 변환
+        const idString = a._id.toString();
         return (
-          <Link href={`/detail/${idString}`}>
+          <Link prefetch={false} href={`/detail/${idString}`}>
             <div className="list_item" key={i}>
               <h4>{a.title}</h4>
               <p>{a.content}</p>
@@ -21,6 +22,7 @@ export default async function List() {
           </Link>
         );
       })}
+      <DetailLink />
     </div>
   );
 }
