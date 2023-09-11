@@ -14,12 +14,13 @@ export default async function List() {
       {result.map((a, i) => {
         const idString = a._id.toString();
         return (
-          <Link prefetch={false} href={`/detail/${idString}`}>
-            <div className="list_item" key={i}>
+          <div className="list_item" key={i}>
+            <Link prefetch={false} href={`/detail/${idString}`}>
               <h4>{a.title}</h4>
-              <p>{a.content}</p>
-            </div>
-          </Link>
+            </Link>
+            <p>{a.content}</p>
+            <Link href={`/edit/${result[i]._id}`}>✏️edit</Link>
+          </div>
         );
       })}
       <DetailLink />
