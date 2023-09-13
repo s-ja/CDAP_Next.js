@@ -13,11 +13,11 @@ export default function ListItem({ result }) {
               <h4>{a.title}</h4>
             </Link>
             <p>{a.content}</p>
-            <Link href={`/edit/${result[i]._id}`}>✏️edit</Link>
+            <Link href={`/edit/${result[i]._id}`}>✏️ edit</Link>
             <span
-              onClick={() => {
+              onClick={(e) => {
                 fetch("/api/post/delete", {
-                  method: "POST",
+                  method: "DELETE",
                   body: result[i]._id,
                 })
                   .then((r) => {
@@ -29,7 +29,11 @@ export default function ListItem({ result }) {
                   })
                   .then((r) => {
                     // window.location.reload();
-                    console.log(r);
+                    // console.log(r);
+                    e.target.parentElement.style.opacity = 0;
+                    setTimeout(() => {
+                      e.target.parentElement.style.display = "none";
+                    }, 1000);
                   })
                   .catch((error) => {
                     //인터넷문제 등으로 실패시 실행할코드
@@ -37,7 +41,7 @@ export default function ListItem({ result }) {
                   });
               }}
             >
-              🗑️
+              🗑️ delete
             </span>
           </div>
         );
