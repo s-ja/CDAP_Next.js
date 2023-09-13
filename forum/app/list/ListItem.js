@@ -16,11 +16,11 @@ export default function ListItem({ result }) {
             <Link href={`/edit/${result[i]._id}`}>✏️edit</Link>
             <span
               onClick={() => {
-                fetch(`/delete/${idString}`, {
+                fetch(`/api/post/delete/${idString}`, {
                   method: "DELETE",
-                  body: `${idString}`,
                 }).then(() => {
                   console.log("deleted");
+                  window.location.reload();
                 });
               }}
             >
