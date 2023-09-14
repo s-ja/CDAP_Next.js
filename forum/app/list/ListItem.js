@@ -41,20 +41,25 @@ export default function ListItem({ result }) {
                 //   });
                 // fetch("/api/test?name=asj&age=29");
                 // fetch("/api/test/123");
-                fetch(`/api/test/${idString}`, { method: "DELETE" })
+                fetch(`/api/test/${idString}`, {
+                  method: "DELETE",
+                  body: JSON.stringify({ author: result[i].author }),
+                })
                   .then((r) => {
                     if (r.ok) {
+                      // console.log(r);
                       return r.text();
                     } else {
-                      throw new Error("Error");
+                      // console.log(r);
+                      return r.json().then((err) => Promise.reject(err));
                     }
                   })
                   .then((r) => {
-                    console.log(r);
+                    // console.log(r);
                     window.location.reload();
                   })
                   .catch((error) => {
-                    console.log(error);
+                    console.error("Error:", error.message);
                   });
               }}
             >

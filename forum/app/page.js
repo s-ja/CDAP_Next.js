@@ -13,7 +13,7 @@ export default async function Home() {
 
   // await fetch("", { next: { revalidate: 60 } });
 
-  console.log(result);
+  // console.log(result);
 
   return (
     <div>

@@ -2,7 +2,7 @@ import exp from "constants";
 import { MongoClient } from "mongodb";
 
 const url =
-  "mongodb+srv://ansj8777:8h6L9BJO9xTgOYlL@cluster0.aoy4j9w.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://ansj8777:8h6L9BJO9xTgOYlL@cluster0.aoy4j9w.mongodb.net/forum?retryWrites=true&w=majority";
 
 const options = {
   useNewUrlParser: true,
