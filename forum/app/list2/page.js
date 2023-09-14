@@ -4,7 +4,9 @@ import ListItem from "./ListItem";
 
 import DetailLink from "./DetailLink";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
+
+export const revalidate = 20;
 
 export default async function List() {
   const db = (await connectDB).db("forum");
