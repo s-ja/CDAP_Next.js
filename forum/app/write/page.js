@@ -1,6 +1,11 @@
 export default function Write() {
-  return (
-    <div className="p-20">
+
+  if(){
+    return <div>please log in</div>
+  }else{
+
+    return (
+      <div className="p-20">
       <h4>write post</h4>
       <form action="/api/post/new" method="POST">
         <input type="text" name="title" placeholder="post title" />
@@ -9,4 +14,5 @@ export default function Write() {
       </form>
     </div>
   );
+}
 }
