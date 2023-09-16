@@ -22,11 +22,11 @@ export default async function handler(request, response) {
       try {
         const db = (await connectDB).db("forum");
         let result = db.collection("post").insertOne(request.body);
-        return response.redirect(302, "/list");
+        response.redirect(302, "/list");
         // response.status(200).json("completed");
         // response.status(200).redirect("/list");
       } catch (error) {
-        return response.status(500).json("server error");
+        response.status(500).json("server error");
       }
     }
   }
