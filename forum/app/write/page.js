@@ -1,6 +1,6 @@
 export default function Write() {
 
-  if(){
+  if(???){
     return <div>please log in</div>
   }else{
 
