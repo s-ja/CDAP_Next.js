@@ -41,7 +41,7 @@ export default function ListItem({ result }) {
                 //   });
                 // fetch("/api/test?name=asj&age=29");
                 // fetch("/api/test/123");
-                fetch(`/api/test/${idString}`, {
+                fetch(`/api/delete/${idString}`, {
                   method: "DELETE",
                   body: JSON.stringify({ author: result[i].author }),
                 })

@@ -8,6 +8,7 @@ export default async function handler(request, response) {
   if (request.method == "DELETE") {
     // console.log(request.query, request.body);
     let session = await getServerSession(request, response, authOptions);
+    console.log(session);
     try {
       const db = (await connectDB).db("forum");
       const { author } = JSON.parse(request.body);
@@ -15,7 +16,7 @@ export default async function handler(request, response) {
         .collection("post")
         .findOne({ _id: new ObjectId(request.query.id) });
 
-      if (!post.author || post.author == session.user.email) {
+      if (session.user.isAdmin || post.author === session.user.email) {
         const result = await db
           .collection("post")
           .deleteOne({ _id: new ObjectId(request.query.id) });

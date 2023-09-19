@@ -57,6 +57,7 @@ export const authOptions = {
         token.user = {};
         token.user.name = user.name;
         token.user.email = user.email;
+        token.user.isAdmin = user.isAdmin; // 관리자 정보 추가
       }
       return token;
     },

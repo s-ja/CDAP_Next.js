@@ -41,7 +41,7 @@ export default function ListItem({ result }) {
                 //   });
                 // fetch("/api/test?name=asj&age=29");
                 // fetch("/api/test/123");
-                fetch(`/api/test/${idString}`, { method: "DELETE" })
+                fetch(`/api/delete/${idString}`, { method: "DELETE" })
                   .then((r) => {
                     if (r.ok) {
                       return r.text();
