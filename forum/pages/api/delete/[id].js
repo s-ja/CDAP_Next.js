@@ -8,7 +8,7 @@ export default async function handler(request, response) {
   if (request.method == "DELETE") {
     // console.log(request.query, request.body);
     let session = await getServerSession(request, response, authOptions);
-    console.log(session);
+    // console.log(session);
     try {
       const db = (await connectDB).db("forum");
       const { author } = JSON.parse(request.body);
@@ -30,7 +30,9 @@ export default async function handler(request, response) {
         //   .json({ message: "현재유저와 작성자 불일치" });
       }
     } catch (error) {
-      return response.status(500).json({ message: "Server Error" });
+      return response
+        .status(500)
+        .json({ message: "Server Error", error: error.message });
     }
   }
   return response.status(405).end();

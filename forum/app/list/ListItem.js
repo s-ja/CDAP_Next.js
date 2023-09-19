@@ -43,6 +43,9 @@ export default function ListItem({ result }) {
                 // fetch("/api/test/123");
                 fetch(`/api/delete/${idString}`, {
                   method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
                   body: JSON.stringify({ author: result[i].author }),
                 })
                   .then((r) => {
@@ -60,6 +63,7 @@ export default function ListItem({ result }) {
                   })
                   .catch((error) => {
                     console.error("Error:", error.message);
+                    alert(error.message); // 오류 메시지를 알림으로 표시
                   });
               }}
             >
