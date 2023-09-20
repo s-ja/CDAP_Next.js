@@ -54,7 +54,9 @@ export default function ListItem({ result }) {
                       return r.text();
                     } else {
                       // console.log(r);
-                      return r.json().then((err) => Promise.reject(err));
+                      return r
+                        .text()
+                        .then((err) => Promise.reject(new Error(err)));
                     }
                   })
                   .then((r) => {
