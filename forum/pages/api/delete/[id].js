@@ -1,13 +1,13 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function handler(request, response) {
   // console.log(request);
   if (request.method == "DELETE") {
     // console.log(request.query, request.body);
-    let session = await getSession({ req: request });
+    let session = await getServerSession(request, response, authOptions);
     // console.log(session);
     try {
       const db = (await connectDB).db("forum");
