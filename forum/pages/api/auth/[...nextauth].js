@@ -28,14 +28,16 @@ export const authOptions = {
           .collection("user_cred")
           .findOne({ email: credentials.email });
         if (!user) {
-          throw new Error("존재하지 않는 이메일 입니다.");
+          console.log("존재하지 않는 이메일 입니다.");
+          return null;
         }
         const pwcheck = await bcrypt.compare(
           credentials.password,
           user.password
         );
         if (!pwcheck) {
-          throw new Error("틀린 비밀번호 입니다.");
+          console.log("틀린 비밀번호 입니다.");
+          return null;
         }
         return user;
       },
