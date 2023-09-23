@@ -27,7 +27,7 @@ export default function Comment(props) {
                 </li>
               );
             })
-          : "no comment..."}
+          : "no comment"}
       </ul>
       <input
         type="text"
