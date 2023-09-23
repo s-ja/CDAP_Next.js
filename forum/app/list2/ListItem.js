@@ -50,7 +50,7 @@ export default function ListItem({ result }) {
                     }
                   })
                   .then((r) => {
-                    console.log(r);
+                    // console.log(r);
                     window.location.reload();
                   })
                   .catch((error) => {

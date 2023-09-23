@@ -8,14 +8,16 @@ export default async function Detail(props) {
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <div>
-      <h4>post</h4>
+      <h4>post detail</h4>
       <h4>{result.title}</h4>
       <p>{result.content}</p>
-      <Comment />
+      <hr />
+
+      <Comment _id={result._id.toString()} />
     </div>
   );
 }
